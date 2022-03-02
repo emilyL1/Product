@@ -52,7 +52,7 @@ public class ProductServiceImpl implements ProductService {
     public ProductVO getProductById(Long id) {
         ProductVO res = new ProductVO();
         Product product = productRepo.getProductById(id);
-        if(product == null) throw new NullPointerException("Product doesn't exist");
+        if(product == null) throw new EntityNotFoundException("Product doesn't exist");
         BeanUtils.copyProperties(product,res);
         return res;
     }
